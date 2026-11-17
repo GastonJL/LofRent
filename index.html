@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Loft Rent · Alquiler temporario en Buenos Aires</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Cormorant+Garamond:wght@500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --fondo:#F6F1E9; --fondo-claro:#FFFDF8; --verde:#2F4A3A; --acento:#8C6B2F;
+  --texto:#2A2622; --texto-suave:#5A524A; --wsp:#1F9E52;
+  --serif:'Fraunces', Georgia, serif; --sans:'Work Sans', system-ui, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--fondo);color:var(--texto);font-family:var(--sans);font-size:17px;line-height:1.6}
+body.sin-scroll{overflow:hidden}
+img{display:block;max-width:100%}
+a{color:var(--verde)}
+.contenedor{max-width:1180px;margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{font-family:var(--serif);color:var(--verde);margin:0}
+.etiqueta{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--acento);font-weight:600;margin:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;padding:14px 28px;border-radius:999px;font-weight:600;font-family:var(--sans);font-size:16px;border:none;cursor:pointer;transition:transform .15s, background .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-acento{background:var(--acento);color:#fff}
+.btn-acento:hover{background:#735724}
+.btn-borde{background:transparent;border:1.5px solid var(--verde);color:var(--verde)}
+.btn-verde{background:var(--verde);color:#fff}
+.btn-wsp{background:var(--wsp);color:#fff}
+.btn-wsp:hover{background:#178543}
+.btn svg{width:20px;height:20px;fill:currentColor}
+header{position:sticky;top:0;z-index:10;background:rgba(246,241,233,.96);backdrop-filter:blur(6px);border-bottom:1px solid rgba(47,74,58,.08)}
+header .contenedor{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#1C1B1A}
+.logo-icono{width:52px;height:44px}
+.logo span{font-family:'Cormorant Garamond', Georgia, serif;font-size:30px;font-weight:500;letter-spacing:.02em;line-height:1}
+nav{display:flex;flex-wrap:wrap;gap:24px;align-items:center;font-size:15px}
+nav a{text-decoration:none}
+nav .btn{padding:10px 20px;font-size:15px}
+@media (max-width:640px){nav a:not(.btn){display:none}}
+.hero{display:flex;flex-wrap:wrap;gap:48px;align-items:center;padding-top:40px;padding-bottom:80px}
+.hero-texto{flex:1 1 420px;min-width:0}
+.hero h1{font-size:clamp(40px,6vw,60px);line-height:1.05;font-weight:400;margin:12px 0 20px}
+.hero p.bajada{font-size:19px;color:var(--texto-suave);max-width:480px;margin:0 0 32px}
+.botones{display:flex;flex-wrap:wrap;gap:14px}
+.datos{display:flex;flex-wrap:wrap;gap:32px;margin-top:40px;font-size:15px;color:var(--texto-suave)}
+.datos strong{display:block;font-family:var(--serif);font-size:28px;color:var(--verde);font-weight:600}
+.hero-foto{flex:1 1 420px;min-width:0}
+.hero-foto img{width:100%;height:520px;object-fit:cover;border-radius:220px 220px 24px 24px}
+@media (max-width:640px){.hero-foto img{height:380px}}
+.nosotros-banda{background:var(--fondo-claro)}
+.deptos{background:var(--fondo);padding:88px 0}
+.seccion-titulo{font-size:clamp(32px,4vw,42px);font-weight:400;margin-bottom:8px}
+.intro{color:var(--texto-suave);margin:0 0 40px}
+.grilla{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px}
+.tarjeta{background:var(--fondo-claro);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.tarjeta-foto{position:relative;height:250px;border:none;padding:0;cursor:pointer;background:#D9CBB6;width:100%}
+.tarjeta-foto img{width:100%;height:100%;object-fit:cover}
+.contador-fotos{position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.6);color:#fff;font-size:13px;padding:4px 10px;border-radius:999px}
+.tarjeta-cuerpo{padding:24px;display:flex;flex-direction:column;flex:1}
+.tarjeta h3{font-size:24px;font-weight:600;margin:6px 0 6px}
+.specs{font-size:14px;color:var(--texto-suave);margin:0 0 12px}
+.tarjeta p.desc{font-size:15px;color:var(--texto-suave);margin:0 0 20px}
+.tarjeta-acciones{margin-top:auto;display:flex;flex-wrap:wrap;gap:10px}
+.tarjeta-acciones .btn{padding:12px 20px;font-size:15px}
+.nosotros{display:flex;flex-wrap:wrap;gap:48px;align-items:center;padding-top:88px;padding-bottom:88px}
+.nosotros img{flex:0 0 240px;width:240px;height:240px;border-radius:50%;object-fit:cover}
+.nosotros-texto{flex:1 1 420px;min-width:0}
+.nosotros-texto p{color:var(--texto-suave);font-size:18px;margin:16px 0}
+.cita{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--acento)}
+.ubicacion{background:var(--fondo-claro);padding:88px 0}
+.ubic-grid{display:flex;flex-wrap:wrap;gap:28px;align-items:stretch}
+.ubic-lista{flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:12px}
+.ubic-item{background:var(--fondo);border:2px solid transparent;border-radius:16px;padding:6px 6px 14px;transition:border-color .15s}
+.ubic-item.activo{border-color:var(--acento)}
+.ubic-sel{display:block;width:100%;text-align:left;font:inherit;color:var(--texto);background:none;border:none;padding:12px 14px 6px;cursor:pointer}
+.ubic-sel strong{display:block;font-family:var(--serif);color:var(--verde);font-size:19px;line-height:1.3;margin:4px 0 6px}
+.ubic-sel .cerca{display:block;font-size:14px;color:var(--texto-suave)}
+.link-btn{font:inherit;font-size:15px;font-weight:600;color:var(--acento);background:none;border:none;padding:4px 14px;cursor:pointer;text-decoration:underline}
+.mapa{flex:2 1 480px;min-width:0;border-radius:20px;overflow:hidden;min-height:440px;background:#D9CBB6}
+.mapa iframe{width:100%;height:100%;min-height:440px;border:0;display:block}
+.mapa-ficha{margin-top:14px;min-height:280px;border-radius:16px}
+.mapa-ficha iframe{min-height:280px}
+.como-llegar{display:inline-block;margin-top:10px;font-weight:600;font-size:15px}
+.resenas{background:var(--fondo);padding:88px 0}
+.resenas-grilla{columns:3 300px;column-gap:24px}
+.resena{break-inside:avoid;background:var(--fondo-claro);border-radius:18px;padding:24px;margin:0 0 24px;display:flex;flex-direction:column;gap:14px}
+.resena-estrellas{color:#B08A45;font-size:18px;letter-spacing:2px;line-height:1}
+.resena blockquote{margin:0;font-size:16px;line-height:1.6;color:var(--texto)}
+.resena-pie{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid rgba(47,74,58,.1);padding-top:14px}
+.resena-pie strong{display:block;color:var(--verde);font-size:15px}
+.resena-pie div span{font-size:13px;color:var(--texto-suave)}
+.plataforma{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--fondo);color:var(--texto-suave)}
+.contacto{background:var(--verde);color:var(--fondo);padding:80px 0;text-align:center}
+.contacto h2{color:var(--fondo);font-size:clamp(32px,4vw,42px);font-weight:400;margin-bottom:12px}
+.contacto p{color:#D6DDD5;margin:0 0 28px}
+.contacto .botones{justify-content:center}
+footer{padding:28px 0;text-align:center;font-size:14px;color:var(--texto-suave)}
+.ficha-fondo{position:fixed;inset:0;background:rgba(20,18,15,.7);z-index:50;display:none;overflow-y:auto;padding:24px 12px}
+.ficha-fondo.abierta{display:block}
+.ficha{background:var(--fondo-claro);max-width:1000px;margin:0 auto;border-radius:20px;overflow:hidden;position:relative}
+.cerrar{position:absolute;top:14px;right:14px;z-index:3;width:44px;height:44px;border-radius:50%;border:none;background:#fff;color:var(--verde);font-size:24px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.visor{position:relative;background:#1d1a17;height:min(60vh,560px)}
+.visor img{width:100%;height:100%;object-fit:contain}
+.visor .flecha{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:none;background:rgba(255,255,255,.92);color:var(--verde);font-size:24px;cursor:pointer}
+.visor .ant{left:12px}.visor .sig{right:12px}
+.visor .numero{position:absolute;left:14px;bottom:12px;background:rgba(0,0,0,.6);color:#fff;font-size:13px;padding:4px 10px;border-radius:999px}
+.miniaturas{display:flex;gap:8px;overflow-x:auto;padding:12px;background:#1d1a17}
+.miniaturas button{flex:0 0 88px;height:64px;padding:0;border:2px solid transparent;border-radius:8px;overflow:hidden;cursor:pointer;opacity:.6;background:none}
+.miniaturas button.activa{border-color:#fff;opacity:1}
+.miniaturas img{width:100%;height:100%;object-fit:cover}
+.ficha-cuerpo{padding:32px;display:flex;flex-wrap:wrap;gap:40px}
+.ficha-info{flex:1 1 480px;min-width:0}
+.ficha-info h2{font-size:clamp(28px,4vw,36px);font-weight:600;margin:6px 0 12px}
+.ficha-specs{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 24px;padding:0;list-style:none}
+.ficha-specs li{background:var(--fondo);padding:8px 14px;border-radius:12px;font-size:15px}
+.ficha-info h4{font-size:22px;font-weight:600;margin:28px 0 10px}
+.ficha-info p{color:var(--texto-suave);margin:0 0 12px}
+.comodidades{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px 20px;list-style:none;padding:0;margin:0}
+.comodidades li{font-size:15px;padding-left:24px;position:relative}
+.comodidades li::before{content:"✓";position:absolute;left:0;color:var(--acento);font-weight:600}
+.ficha-consulta{flex:1 1 280px;min-width:0;align-self:flex-start;background:var(--fondo);border-radius:16px;padding:24px;position:sticky;top:12px}
+.ficha-consulta h4{font-size:22px;font-weight:600;margin:0 0 4px}
+.ficha-consulta p{font-size:14px;color:var(--texto-suave);margin:0 0 16px}
+.campo{display:flex;flex-direction:column;gap:4px;margin-bottom:12px;font-size:14px;font-weight:500}
+.campo input,.campo select{font:inherit;font-weight:400;font-size:16px;padding:10px 12px;border:1px solid rgba(47,74,58,.3);border-radius:10px;background:#fff;color:var(--texto)}
+.ficha-consulta .btn{width:100%;margin-top:6px}
+.wsp-flotante{position:fixed;right:20px;bottom:20px;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,.2);z-index:20}
+.wsp-flotante svg{width:32px;height:32px;fill:#fff}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="contenedor">
+    <a href="#inicio" class="logo" aria-label="Loft Rent, inicio"><svg class="logo-icono" viewBox="0 -2 104 88" aria-hidden="true"><defs><linearGradient id="oro" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D8BF8A"/><stop offset="1" stop-color="#A9843F"/></linearGradient></defs><g fill="none" stroke-linecap="square"><path d="M7 30 L2 35 L2 83 L24 83" stroke="#1C1B1A" stroke-width="4"/><path d="M17 16 L17 75 L34 75" stroke="#1C1B1A" stroke-width="4"/><path d="M27 42 L27 18 L50 1 L79 26 L79 83 L45 83 L45 64" stroke="url(#oro)" stroke-width="3.6"/><circle cx="38" cy="52" r="10" stroke="url(#oro)" stroke-width="3.6"/><path d="M48 52 L102 52 M88 52 L88 60 M95 52 L95 60" stroke="url(#oro)" stroke-width="3.6" stroke-linecap="butt"/></g></svg><span>Loft Rent</span></a>
+    <nav>
+      <a href="#nosotros">Quiénes somos</a>
+      <a href="#deptos">Departamentos</a>
+      <a href="#ubicacion">Ubicación</a>
+      <a href="#opiniones">Opiniones</a>
+      <a href="#" data-wsp="Hola! Quiero consultar disponibilidad" class="btn btn-verde" target="_blank" rel="noopener">Consultar</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="contenedor hero">
+    <div class="hero-texto">
+      <p class="etiqueta">Alquiler temporario en Buenos Aires</p>
+      <h1>Departamentos para sentirte como en casa</h1>
+      <p class="bajada">Tres departamentos equipados en Caballito y Palermo Chico, atendidos personalmente por Gustavo y Laura.</p>
+      <div class="botones">
+        <a href="#deptos" class="btn btn-acento">Ver departamentos</a>
+        <a href="#" data-wsp="Hola! Quiero consultar disponibilidad" class="btn btn-borde" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
+      </div>
+      <div class="datos">
+        <div><strong>4,86 ★</strong>valoración de huéspedes</div>
+        <div><strong>+75</strong>estadías evaluadas</div>
+        <div><strong>&lt; 1 hora</strong>tiempo de respuesta</div>
+      </div>
+    </div>
+    <div class="hero-foto">
+      <img src="https://a0.muscache.com/im/pictures/miso/Hosting-42307034/original/a622fe06-54e7-4679-af52-9855cbed65c2.jpeg?im_w=1200" alt="Living luminoso del departamento en Caballito">
+    </div>
+  </section>
+
+  <section id="nosotros" class="nosotros-banda">
+  <div class="contenedor nosotros">
+    <img id="foto-nosotros" src="https://a0.muscache.com/im/pictures/user/7f6c1462-a56e-4e82-a0da-83e8bb9ec873.jpg?im_w=480" alt="Laura y Gustavo, anfitriones">
+    <div class="nosotros-texto">
+      <h2 class="seccion-titulo">Hola, somos Gustavo y Laura</h2>
+      <p>Nos gusta viajar y solemos hospedarnos en departamentos, por eso cuidamos que a nuestros huéspedes no les falte nada. Respondemos en menos de una hora y estamos disponibles ante cualquier urgencia durante tu estadía.</p>
+      <p class="cita">4 años recibiendo huéspedes en Buenos Aires.</p>
+    </div>
+  </div>
+  </section>
+
+  <section id="deptos" class="deptos">
+    <div class="contenedor">
+      <h2 class="seccion-titulo">Nuestros departamentos</h2>
+      <p class="intro">Tocá cualquiera para ver todas las fotos, comodidades y detalles.</p>
+      <div class="grilla" id="grilla"></div>
+    </div>
+  </section>
+
+  <section id="ubicacion" class="ubicacion">
+    <div class="contenedor">
+      <h2 class="seccion-titulo">Dónde estamos</h2>
+      <p class="intro">Dos de los barrios más lindos y mejor conectados de Buenos Aires. Elegí un departamento para verlo en el mapa.</p>
+      <div class="ubic-grid">
+        <div class="ubic-lista" id="ubic-lista"></div>
+        <div class="mapa"><iframe id="mapa-general" title="Mapa de ubicación de los departamentos" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="opiniones" class="resenas">
+    <div class="contenedor">
+      <h2 class="seccion-titulo">Lo que dicen nuestros huéspedes</h2>
+      <p class="intro">4,86 ★ de promedio en más de 75 evaluaciones de huéspedes reales.</p>
+      <div class="resenas-grilla" id="resenas"></div>
+    </div>
+  </section>
+
+  <section id="contacto" class="contacto">
+    <div class="contenedor">
+      <h2>¿Planeás tu estadía?</h2>
+      <p>Escribinos por WhatsApp con tus fechas y cuántos son, y te respondemos enseguida.</p>
+      <div class="botones">
+        <a href="#" data-wsp="Hola! Quiero consultar disponibilidad" class="btn btn-wsp" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.3-.4.8-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+          Escribinos por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>©️ 2026 Loft Rent · Buenos Aires, Argentina</footer>
+
+<a class="wsp-flotante" href="#" data-wsp="Hola! Quiero consultar disponibilidad" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.3-.4.8-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+</a>
+
+<div class="ficha-fondo" id="ficha-fondo" role="dialog" aria-modal="true" aria-labelledby="ficha-titulo">
+  <div class="ficha">
+    <button class="cerrar" id="cerrar" aria-label="Cerrar">×</button>
+    <div class="visor">
+      <img id="visor-img" src="" alt="">
+      <button class="flecha ant" id="foto-ant" aria-label="Foto anterior">‹</button>
+      <button class="flecha sig" id="foto-sig" aria-label="Foto siguiente">›</button>
+      <span class="numero" id="visor-num"></span>
+    </div>
+    <div class="miniaturas" id="miniaturas"></div>
+    <div class="ficha-cuerpo">
+      <div class="ficha-info">
+        <p class="etiqueta" id="ficha-barrio"></p>
+        <h2 id="ficha-titulo"></h2>
+        <ul class="ficha-specs" id="ficha-specs"></ul>
+        <h4>El departamento</h4>
+        <div id="ficha-desc"></div>
+        <h4>Comodidades</h4>
+        <ul class="comodidades" id="ficha-comodidades"></ul>
+        <h4>La zona</h4>
+        <div id="ficha-zona"></div>
+        <div class="mapa mapa-ficha"><iframe id="mapa-ficha" title="Mapa del departamento" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+        <a class="como-llegar" id="como-llegar" href="#" target="_blank" rel="noopener">Abrir en Google Maps →</a>
+        <div id="ficha-extra"></div>
+      </div>
+      <form class="ficha-consulta" id="form-consulta">
+        <h4>Consultá disponibilidad</h4>
+        <p>Completá y te abrimos WhatsApp con el mensaje listo.</p>
+        <label class="campo">Llegada <input type="date" id="f-llegada"></label>
+        <label class="campo">Salida <input type="date" id="f-salida"></label>
+        <label class="campo">Huéspedes
+          <select id="f-huespedes"><option>1</option><option selected>2</option><option>3</option><option>4</option></select>
+        </label>
+        <button type="submit" class="btn btn-wsp">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.3-.4.8-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+          Consultar por WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+/* 1) NÚMERO DE WHATSAPP */
+var WHATSAPP = "5491163985638";
+
+/* FOTO DE "HOLA, SOMOS GUSTAVO Y LAURA"
+   Pegá entre las comillas el link de Google Drive de la foto
+   (compartida como "Cualquier persona con el enlace"). */
+var FOTO_NOSOTROS = "https://drive.google.com/drive/folders/1JJqTpme6Zh0V4gzYMUU-T6gBpdvH1NZn";
+
+/* 2) LOS DEPARTAMENTOS
+   Para agregar fotos, sumá links a la lista "fotos".
+   En "ubicacion" va la dirección que se marca en el mapa. */
+var DEPTOS = [
+  {
+    nombre: "Calido Departamento en Caballito con Pileta,Sauna",
+    barrio: "Caballito",
+    valoracion: "★ 4,83 · 48 evaluaciones",
+    specs: ["4 huéspedes", "1 dormitorio", "2 camas", "1,5 baños", "3er piso con balcón"],
+    resumen: "Tercer piso luminoso con balcón y vista a la ciudad. Edificio con pileta, sauna y laundry.",
+    descripcion: [
+      "Confortable departamento luminoso, equipado para 4 personas, en un tercer piso con balcón y vista a la ciudad. El edificio cuenta con pileta, sauna y laundry, y el departamento tiene calefacción y agua caliente central.",
+      "En el dormitorio vas a encontrar un sommier queen y placard; en el living, un sofá cama para 2 personas. Ambos ambientes tienen Smart TV y aire acondicionado, y el dormitorio separado te da toda la privacidad.",
+      "La cocina está equipada con heladera con freezer, cafetera, tostadora, microondas, horno eléctrico y utensilios de cocina."
+    ],
+    comodidades: ["Pileta en el edificio", "Sauna", "Laundry", "Balcón con vista", "Aire acondicionado", "Calefacción central", "Wi-Fi", "Smart TV en dormitorio y living", "Cocina equipada", "Microondas y horno eléctrico", "Cafetera y tostadora", "Zona de trabajo", "Estacionamiento gratis en la calle"],
+    zona: [
+      "Ubicado en el centro geográfico de la Ciudad de Buenos Aires, cerca del Parque Rivadavia y a 200 metros de la Av. Rivadavia, con colectivos, subte, shopping, cines, bares, restaurantes y supermercados.",
+      "A 30 minutos del Obelisco y de Puerto Madero, a 15 del Movistar Arena, a 20/30 de Palermo y muy cerca del centro comercial mayorista de la calle Avellaneda."
+    ],
+    ubicacion: "Hidalgo 355, Caballito, Buenos Aires, Argentina",
+    cerca: "Parque Rivadavia · Av. Rivadavia · Subte A",
+    extra: "",
+    fotos: [
+      "https://a0.muscache.com/im/pictures/miso/Hosting-42307034/original/a622fe06-54e7-4679-af52-9855cbed65c2.jpeg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-42307034/original/72d72eb5-f0c9-4fbf-a6bd-7aa389a61acc.jpeg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-42307034/original/0620c33d-5a75-4aa3-bcbf-c980ab43c442.jpeg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-42307034/original/98500ce2-115a-49f9-9078-dd7e4ee8ca70.jpeg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NDIzMDcwMzQ%3D/original/b93465a2-bf34-4e7d-985c-71244baf5dc7.jpeg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NDIzMDcwMzQ%3D/original/dae4ab4c-5366-4c7a-92ef-09fe29f12e18.jpeg?im_w=1200"
+    ]
+  },
+  {
+    nombre: "Calido Departamento en Palermo Chico con Jacuzzi",
+    barrio: "Palermo Chico",
+    valoracion: "★ 4,91 · 22 evaluaciones",
+    specs: ["4 huéspedes", "1 dormitorio en suite", "3 camas + cuna", "1,5 baños", "1er piso con balcón"],
+    resumen: "Dormitorio en suite con balcón, lavarropas y TV 50\". A cuadras de los Bosques de Palermo.",
+    descripcion: [
+      "Alojamiento tranquilo y céntrico en la mejor zona de Palermo Chico, en el primer piso de un edificio moderno con ascensor. Es un 2 ambientes con dormitorio en suite, dos sofás cama individuales y toilette.",
+      "El dormitorio tiene sommier queen, aire acondicionado frío/calor, Smart TV, salida al balcón y baño en suite. El living tiene 2 sofás cama individuales (para más privacidad), aire frío/calor y Smart TV con salida al balcón. Incluimos ropa de cama.",
+      "La cocina integrada tiene todo lo que necesitás: lavarropas, microondas, horno, anafe, pava eléctrica, tostadora, plancha y tabla, tender, ollas, sartén y vajilla para 4 personas."
+    ],
+    comodidades: ["Jacuzzi en el edificio*", "SUM con parrilla*", "Dormitorio en suite", "Balcón", "Wi-Fi rápido (268 Mbps)", "Aire acondicionado frío/calor", "TV 50\" con Netflix, Disney+ y Prime", "Lavarropas", "Cocina equipada", "Plancha y tender", "Ropa de cama incluida", "Cuna disponible", "Zona de trabajo", "Ascensor", "Estacionamiento gratis en la calle"],
+    zona: [
+      "A cuadras de los Bosques de Palermo, a 2 cuadras del Ecoparque y de la embajada de EE.UU., rodeado de una gran variedad gastronómica. Zona tranquila, linda y fácil de recorrer a pie."
+    ],
+    ubicacion: "Lafinur 3385, Palermo, Buenos Aires, Argentina",
+    cerca: "Bosques de Palermo · Ecoparque · gastronomía",
+    extra: "* El jacuzzi (USD 30) y el SUM con parrilla y jacuzzi (USD 40) tienen costo adicional y se reservan con anticipación.",
+    fotos: [
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-1094340929086979223/original/a28b687c-6fdd-4bc2-ab5c-cc54191a0fc5.jpeg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-1094340929086979223/original/90dc0d2c-2bc0-4c8f-ba0e-3407667d2da8.jpeg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTA5NDM0MDkyOTA4Njk3OTIyMw%3D%3D/original/7cb0aaa2-3f26-4b1b-afaf-ce38b0190723.jpeg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-1094340929086979223/original/148198ef-cd66-4c20-ac97-16eb9270b69e.jpeg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTA5NDM0MDkyOTA4Njk3OTIyMw%3D%3D/original/d0473f7b-ea49-4cd8-adc1-eccdd5762a39.jpeg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-1094340929086979223/original/dbf247bd-5c02-4c1b-90a9-e5c78474f38c.jpeg?im_w=1200"
+    ]
+  },
+  {
+    nombre: "Comodo Departamento en Caballito",
+    barrio: "Caballito",
+    valoracion: "★ 4,8 · 5 evaluaciones",
+    specs: ["4 huéspedes", "1 dormitorio", "3 camas", "1,5 baños"],
+    resumen: "Cama queen y dos sofás cama, espacio de trabajo y TV 45\" con streaming.",
+    descripcion: [
+      "Relajate con toda la familia en este alojamiento tranquilo de Caballito.",
+      "El dormitorio tiene cama queen y el living dos sofás cama. Cuenta con espacio para trabajar, aire acondicionado y una TV de 45\" con Netflix, Disney+, Prime Video y Apple TV. El baño tiene agarraderas fijas en la ducha."
+    ],
+    comodidades: ["Aire acondicionado", "Wi-Fi", "TV 45\" con Netflix, Disney+, Prime y Apple TV", "Cocina equipada", "Zona de trabajo", "Agarraderas en la ducha"],
+    zona: [
+      "En Caballito, el centro geográfico de la ciudad, con transporte, comercios y gastronomía cerca."
+    ],
+    ubicacion: "Méndez de Andés 447, Caballito, Buenos Aires, Argentina",
+    cerca: "Centro geográfico de la ciudad · transporte y comercios",
+    extra: "",
+    fotos: [
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-1655913126130984029/original/b104c4e6-d76f-4fd2-8871-b56a0de8c452.jpeg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-1655913126130984029/original/c3507b83-01dd-4172-892b-28829e4d002b.jpeg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-1655913126130984029/original/cd29b192-6312-42de-957c-c44c40997240.jpeg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-1655913126130984029/original/97c808b2-c30b-4c37-ae25-19102580bfac.jpeg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-1655913126130984029/original/1ffe8de5-6b7e-4d1f-afd5-2661308cc075.jpeg?im_w=1200"
+    ]
+  }
+];
+
+/* 3) OPINIONES DE HUÉSPEDES
+   Para sumar una, copiá un bloque { ... } y cambiá los datos.
+   plataforma: "Airbnb" o "Booking" */
+var RESENAS = [
+  { nombre: "María Celeste", detalle: "Septiembre 2026 · Viaje con niños", estrellas: 5, plataforma: "Airbnb",
+    texto: "Muchas gracias. El alojamiento es hermoso, con todas las comodidades y lo que uno pueda necesitar. Muy recomendable." },
+  { nombre: "Luis Enrique", detalle: "Agosto 2026 · Estancia de varias noches", estrellas: 5, plataforma: "Airbnb",
+    texto: "Excelente atención. Muy limpio, cómodo. Ubicación excelente, muy cerca del sitio de mi conferencia. La recomiendo. Estupendo precio-valor." },
+  { nombre: "Diego", detalle: "Ashland, Oregón · Mayo 2026", estrellas: 5, plataforma: "Airbnb",
+    texto: "¡Gustavo es un superanfitrión! Siempre estuvo disponible y fue proactivo. La comunicación fue excelente. El lugar es una joya. Tiene todo lo que necesitás, muy acogedor. La zona es estupenda, cerca de excelentes cafeterías, restaurantes y transporte público. Muy recomendable en el estupendo barrio de Caballito." },
+  { nombre: "Nancy", detalle: "Mayo 2026 · Viaje con niños", estrellas: 5, plataforma: "Airbnb",
+    texto: "Nos sentimos muy cómodos durante toda la estadía. El lugar es cálido, limpio y se nota el cuidado en cada detalle. Gracias por la atención y la buena predisposición. ¡Muy recomendable!" },
+  { nombre: "Francisco", detalle: "Río Ceballos, Argentina · Mayo 2026", estrellas: 5, plataforma: "Airbnb",
+    texto: "Un lugar súper recomendable para reservar. Gustavo es muy atento y estuvo presente a cada momento." },
+  { nombre: "Jorge Faustino", detalle: "Rada Tilly, Argentina · Marzo 2026", estrellas: 5, plataforma: "Airbnb",
+    texto: "Superó ampliamente mis expectativas. Lo recomiendo 100 x 100." },
+  { nombre: "Gisela", detalle: "Buenos Aires, Argentina · Febrero 2026", estrellas: 5, plataforma: "Airbnb",
+    texto: "¡Nos encantó la zona! Tranquila, segura y agradable. El departamento muy cómodo, con todo lo necesario para una linda estadía." },
+  { nombre: "Noelia Belén", detalle: "Julio 2025 · Viaje con niños", estrellas: 5, plataforma: "Airbnb",
+    texto: "Excelente atención la de Gustavo, muy cómodo y limpio el departamento, muy buena ubicación (nosotros fuimos con dos niños), hay cosas para hacer cerca, por ejemplo: Ecoparque, Jardín Japonés. El edificio y la zona muy tranquilos. Sin duda volveremos a hospedarnos ahí." }
+];
+
+/* ===== De acá para abajo no hace falta tocar nada ===== */
+function linkWsp(texto) {
+  return "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(texto);
+}
+function esc(t) {
+  return String(t).replace(/[&<>"]/g, function (c) { return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; });
+}
+function linkMapa(lugar) {
+  return "https://maps.google.com/maps?q=" + encodeURIComponent(lugar) + "&z=16&output=embed";
+}
+function linkComoLlegar(lugar) {
+  return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(lugar);
+}
+
+// Foto de Gustavo y Laura desde Google Drive
+(function () {
+  var m = FOTO_NOSOTROS.match(/\/d\/([\w-]+)/) || FOTO_NOSOTROS.match(/[?&]id=([\w-]+)/);
+  if (m) document.getElementById("foto-nosotros").src = "https://lh3.googleusercontent.com/d/" + m[1];
+})();
+
+document.querySelectorAll("[data-wsp]").forEach(function (a) {
+  a.href = linkWsp(a.getAttribute("data-wsp"));
+});
+
+// Tarjetas
+var grilla = document.getElementById("grilla");
+DEPTOS.forEach(function (d, n) {
+  var art = document.createElement("article");
+  art.className = "tarjeta";
+  art.innerHTML =
+    '<button class="tarjeta-foto" data-abrir="' + n + '" aria-label="Ver fotos de ' + esc(d.nombre) + '">' +
+      '<img src="' + d.fotos[0] + '" alt="' + esc(d.nombre) + '" loading="lazy">' +
+      '<span class="contador-fotos">' + d.fotos.length + ' fotos</span>' +
+    '</button>' +
+    '<div class="tarjeta-cuerpo">' +
+      '<p class="etiqueta">' + esc(d.barrio) + ' · ' + esc(d.valoracion.split(" · ")[0]) + '</p>' +
+      '<h3>' + esc(d.nombre) + '</h3>' +
+      '<p class="specs">' + esc(d.specs.slice(0, 4).join(" · ")) + '</p>' +
+      '<p class="desc">' + esc(d.resumen) + '</p>' +
+      '<div class="tarjeta-acciones">' +
+        '<button class="btn btn-acento" data-abrir="' + n + '">Ver todo</button>' +
+        '<a class="btn btn-borde" target="_blank" rel="noopener" href="' + linkWsp("Hola! Quiero consultar por el depto \"" + d.nombre + "\"") + '">WhatsApp</a>' +
+      '</div>' +
+    '</div>';
+  grilla.appendChild(art);
+});
+
+// Opiniones
+document.getElementById("resenas").innerHTML = RESENAS.map(function (r) {
+  var e = "★★★★★".slice(0, r.estrellas) + "☆☆☆☆☆".slice(0, 5 - r.estrellas);
+  return '<figure class="resena">' +
+    '<div class="resena-estrellas" aria-label="' + r.estrellas + ' de 5 estrellas">' + e + '</div>' +
+    '<blockquote>' + esc(r.texto) + '</blockquote>' +
+    '<figcaption class="resena-pie"><div><strong>' + esc(r.nombre) + '</strong><span>' + esc(r.detalle) + '</span></div>' +
+    '<span class="plataforma">' + esc(r.plataforma) + '</span></figcaption>' +
+  '</figure>';
+}).join("");
+
+// Dónde estamos
+var ubicLista = document.getElementById("ubic-lista");
+DEPTOS.forEach(function (d, n) {
+  var div = document.createElement("div");
+  div.className = "ubic-item";
+  div.innerHTML =
+    '<button type="button" class="ubic-sel" data-mapa="' + n + '">' +
+      '<span class="etiqueta">' + esc(d.barrio) + '</span>' +
+      '<strong>' + esc(d.nombre) + '</strong>' +
+      '<span class="cerca">' + esc(d.cerca) + '</span>' +
+    '</button>' +
+    '<button type="button" class="link-btn" data-abrir="' + n + '">Ver departamento</button>';
+  ubicLista.appendChild(div);
+});
+function elegirMapa(n) {
+  document.getElementById("mapa-general").src = linkMapa(DEPTOS[n].ubicacion);
+  document.querySelectorAll(".ubic-item").forEach(function (el, i) {
+    el.classList.toggle("activo", i === n);
+  });
+}
+elegirMapa(0);
+
+// Ficha
+var fondo = document.getElementById("ficha-fondo");
+var actual = null, fotoN = 0;
+
+function mostrarFoto(n) {
+  var fotos = actual.fotos;
+  fotoN = (n + fotos.length) % fotos.length;
+  var img = document.getElementById("visor-img");
+  img.src = fotos[fotoN];
+  img.alt = actual.nombre + " – foto " + (fotoN + 1);
+  document.getElementById("visor-num").textContent = (fotoN + 1) + " / " + fotos.length;
+  document.querySelectorAll("#miniaturas button").forEach(function (b, i) {
+    b.classList.toggle("activa", i === fotoN);
+  });
+}
+
+function abrir(n) {
+  actual = DEPTOS[n];
+  document.getElementById("ficha-barrio").textContent = actual.barrio + " · " + actual.valoracion;
+  document.getElementById("ficha-titulo").textContent = actual.nombre;
+  document.getElementById("ficha-specs").innerHTML = actual.specs.map(function (s) { return "<li>" + esc(s) + "</li>"; }).join("");
+  document.getElementById("ficha-desc").innerHTML = actual.descripcion.map(function (p) { return "<p>" + esc(p) + "</p>"; }).join("");
+  document.getElementById("ficha-comodidades").innerHTML = actual.comodidades.map(function (c) { return "<li>" + esc(c) + "</li>"; }).join("");
+  document.getElementById("ficha-zona").innerHTML = actual.zona.map(function (p) { return "<p>" + esc(p) + "</p>"; }).join("");
+  document.getElementById("ficha-extra").innerHTML = actual.extra ? '<p style="font-size:14px">' + esc(actual.extra) + "</p>" : "";
+  document.getElementById("miniaturas").innerHTML = actual.fotos.map(function (f, i) {
+    return '<button type="button" data-foto="' + i + '" aria-label="Ver foto ' + (i + 1) + '"><img src="' + f + '" alt="" loading="lazy"></button>';
+  }).join("");
+  document.getElementById("mapa-ficha").src = linkMapa(actual.ubicacion);
+  document.getElementById("como-llegar").href = linkComoLlegar(actual.ubicacion);
+  mostrarFoto(0);
+  fondo.classList.add("abierta");
+  fondo.scrollTop = 0;
+  document.body.classList.add("sin-scroll");
+}
+
+function cerrar() {
+  fondo.classList.remove("abierta");
+  document.body.classList.remove("sin-scroll");
+}
+
+document.addEventListener("click", function (e) {
+  var b = e.target.closest("[data-abrir]");
+  if (b) { abrir(+b.getAttribute("data-abrir")); return; }
+  var u = e.target.closest("[data-mapa]");
+  if (u) { elegirMapa(+u.getAttribute("data-mapa")); return; }
+  var m = e.target.closest("[data-foto]");
+  if (m) { mostrarFoto(+m.getAttribute("data-foto")); }
+});
+document.getElementById("foto-ant").onclick = function () { mostrarFoto(fotoN - 1); };
+document.getElementById("foto-sig").onclick = function () { mostrarFoto(fotoN + 1); };
+document.getElementById("cerrar").onclick = cerrar;
+fondo.addEventListener("click", function (e) { if (e.target === fondo) cerrar(); });
+document.addEventListener("keydown", function (e) {
+  if (!fondo.classList.contains("abierta")) return;
+  if (e.key === "Escape") cerrar();
+  if (e.key === "ArrowLeft") mostrarFoto(fotoN - 1);
+  if (e.key === "ArrowRight") mostrarFoto(fotoN + 1);
+});
+
+var x0 = null;
+var visor = document.querySelector(".visor");
+visor.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+visor.addEventListener("touchend", function (e) {
+  if (x0 === null) return;
+  var dx = e.changedTouches[0].clientX - x0;
+  if (Math.abs(dx) > 40) mostrarFoto(fotoN + (dx < 0 ? 1 : -1));
+  x0 = null;
+});
+
+function fecha(v) {
+  if (!v) return "a definir";
+  var p = v.split("-"); return p[2] + "/" + p[1] + "/" + p[0];
+}
+document.getElementById("form-consulta").addEventListener("submit", function (e) {
+  e.preventDefault();
+  var texto = "Hola! Quiero consultar disponibilidad para el depto \"" + actual.nombre + "\".\n" +
+    "Llegada: " + fecha(document.getElementById("f-llegada").value) + "\n" +
+    "Salida: " + fecha(document.getElementById("f-salida").value) + "\n" +
+    "Huéspedes: " + document.getElementById("f-huespedes").value;
+  window.open(linkWsp(texto), "_blank");
+});
+</script>
+</body>
+</html>
